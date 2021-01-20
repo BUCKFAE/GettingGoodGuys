@@ -1,11 +1,10 @@
+from game.tictactoe.tictactoe_game import TicTacToeGame
 from game.tictactoe.tictactoe_tile_type import TicTacToeTileType
-
 
 def main():
     print("Hello, World!")
 
-    x = TicTacToeTileType.TILE_EMPTY
-    print(x.describe())
+    tic_tac_toe_game = TicTacToeGame()
 
 
 if __name__ == "__main__":

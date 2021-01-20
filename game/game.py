@@ -8,7 +8,7 @@ class Game(ABC):
         pass
 
     @abstractmethod
-    def update(self):
+    def update(self, move):
         pass
 
     @abstractmethod
