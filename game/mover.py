@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from player_type import *
+
 
 
 class Mover(ABC):

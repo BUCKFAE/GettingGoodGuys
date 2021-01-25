@@ -12,12 +12,12 @@ from main_loop import MainLoop
 def main():
     print("Hello, World!")
 
-    test_grid = np.array([[1, 0, 0], [1, 1, 1], [0, 1, 1]])
-    print(test_grid)
+    #test_grid = np.array([[1, 0, 0], [1, 1, 1], [0, 1, 1]])
+    #print(test_grid)
 
-    print(get_matching_coordinates(test_grid, 1))
+    #print(get_matching_coordinates(test_grid, 1))
 
-    tic_tac_toe_game = TicTacToeGame()
+    #tic_tac_toe_game = TicTacToeGame()
     pygame.init()
     pygame.font.init()
 
