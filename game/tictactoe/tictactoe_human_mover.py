@@ -1,4 +1,4 @@
-from game.mover import Mover
+from game.mover import Mover, PlayerType
 
 
 class TicTacToeHumanMover(Mover):
@@ -9,3 +9,6 @@ class TicTacToeHumanMover(Mover):
 
         game.update(pressed_location)
         pass
+
+    def get_player_type(self):
+        return PlayerType.HUMAN

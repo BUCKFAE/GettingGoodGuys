@@ -2,6 +2,7 @@ import pygame
 
 import custom_colors
 import settings
+from game.player_type import PlayerType
 from game.tictactoe.tictactoe_game import TicTacToeGame
 from game.tictactoe.tictactoe_human_mover import TicTacToeHumanMover
 from settings import Settings
@@ -17,7 +18,8 @@ class MainLoop:
         self.game = TicTacToeGame()
         #self.game = SnakeGame(12, 7)
 
-        # self.movers = [TicTacToeHumanMover(), TicTacToeHumanMover()]
+        self.movers = [TicTacToeHumanMover(), TicTacToeHumanMover()]
+
 
         print("Initializing MainLoop...")
 
@@ -29,18 +31,24 @@ class MainLoop:
             self.loop()
 
     def loop(self):
+
+        active_mover = self.movers[self.current_player % len(self.movers)]
         # Getting all events
         events = pygame.event.get()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                exit()
 
-        #  active_mover = self.movers[self.current_player % len(self.movers)]
+
+
 
         # Getting the next move
-        # next_move = active_mover.get_next_move(self.game, events)
+        next_move = active_mover.get_next_move(self.game, events)
 
-        # self.current_player += 1
+        self.current_player += 1
 
         # Executing the next move
-        # self.game.update(next_move)
+        self.game.update(next_move)
 
         # Drawing the game_board
         self.draw_game_board()
