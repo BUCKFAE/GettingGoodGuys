@@ -4,9 +4,13 @@ from game.game import Game
 
 
 class SnakeGame(Game):
+    rows = 0
+    columns = 0
 
-    def __init__(self, game_size_x, game_size_y):
-        self.grid = np.zeros((20, 20))
+    def __init__(self, rows, columns):
+        self.grid = np.zeros((rows, columns))
+        self.rows = rows
+        self.columns = columns
 
     def get_grid(self):
         pass
@@ -16,3 +20,12 @@ class SnakeGame(Game):
 
     def get_possible_moves(self):
         pass
+
+    def get_name(self):
+        return "SnakeGame"
+
+    def get_game_rows(self):
+        return self.rows
+
+    def get_game_columns(self):
+        return self.columns

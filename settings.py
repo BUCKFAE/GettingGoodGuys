@@ -1,15 +1,19 @@
 # Settings for TicTacToe
 
-settings = {}
+settings = {'TicTacToe': {'thickness': 10, 'space': 10},
+            'SnakeGame': {'thickness': 1, 'space': 5}}
 
-# TicTacToe
-settings['TicTacToe']['tile_size'] = 200
-settings['TicTacToe']['thickness'] = 10
-settings['TicTacToe']['space'] = 20
 
-# Snake
-settings['TicTacToe']['tile_size'] = 10
-settings['TicTacToe']['thickness'] = 1
-settings['TicTacToe']['space'] = 5
+class Settings:
+    # window
+    WINDOW_X = 1000
+    WINDOW_Y = 1000
 
-pos_x = settings['TicTacToe']['game_size_x']
+    # game_field
+    GAME_HEIGHT = 600
+    GAME_WIDTH = 600
+
+    # always n x n
+    TILE_SIZE = 0
+
+
