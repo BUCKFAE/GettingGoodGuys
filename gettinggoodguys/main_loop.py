@@ -2,12 +2,12 @@ import pygame
 
 import custom_colors
 import settings
-from game.player_type import PlayerType
+
 from game.tictactoe.tictactoe_game import TicTacToeGame
 from game.tictactoe.tictactoe_human_mover import TicTacToeHumanMover
+from gettinggoodguys.game.player_type import PlayerType
 from settings import Settings
-import sys
-from game.snake.snake_game import SnakeGame
+
 
 window_surface = pygame.display.set_mode((Settings.WINDOW_X, Settings.WINDOW_Y))
 background = pygame.Surface((Settings.WINDOW_X, Settings.WINDOW_Y))
@@ -48,11 +48,11 @@ class MainLoop:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # TODO: active_mover should return false if user input is not valid
                     active_mover.get_next_move(self.game, pygame.mouse.get_pos())
-
             else:
-                # Getting the next move for AI
-                # print("adfasdf-------------------------------------------------------------------------------------------")
                 active_mover.get_next_move(self.game, event)
+
+
+
 
         self.current_player += 1
 
