@@ -1,8 +1,9 @@
 import numpy as np
+from typing import Tuple
 
-from game.game import Game
-from game.grid import get_matching_coordinates, get_tile_info_at, set_new_game_state
-from game.tictactoe.tictactoe_tile_type import TicTacToeTileType
+from gettinggoodguys.game.game import Game
+from gettinggoodguys.game.grid import get_matching_coordinates, get_tile_info_at, set_new_game_state
+from gettinggoodguys.game.tictactoe.tictactoe_tile_type import TicTacToeTileType
 
 
 class TicTacToeGame(Game):
@@ -15,7 +16,7 @@ class TicTacToeGame(Game):
     def get_possible_moves(self):
         return get_matching_coordinates(self.grid, 0)
 
-    def update(self, move):
+    def update(self, move: Tuple[int, int]):
         """Move is a tuple"""
         if get_tile_info_at(self.grid, move[0], move[1]) != TicTacToeTileType.TILE_EMPTY:
             exit(1)  # TODO: Throw meaningful message
@@ -28,14 +29,14 @@ class TicTacToeGame(Game):
 
         pass
 
-    def get_grid(self):
+    def get_grid(self) -> np.array:
         return self.grid
 
-    def get_name(self):
+    def get_name(self) -> str:
         return "TicTacToe"
 
-    def get_game_rows(self):
+    def get_game_rows(self) -> int:
         return 3
 
-    def get_game_columns(self):
+    def get_game_columns(self) -> int:
         return 3
