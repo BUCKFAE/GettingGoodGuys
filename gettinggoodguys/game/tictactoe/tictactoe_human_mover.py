@@ -10,7 +10,7 @@ class TicTacToeHumanMover(Mover):
         print(user_inputs)
 
         # pressed_location = user_inputs[0] / 300
-        return 0, 0
+        return user_inputs[0] / 200, user_inputs[1] / 200
         pass
 
     def get_player_type(self):

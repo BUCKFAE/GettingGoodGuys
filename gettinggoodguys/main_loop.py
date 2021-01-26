@@ -8,7 +8,6 @@ from game.tictactoe.tictactoe_human_mover import TicTacToeHumanMover
 from gettinggoodguys.game.player_type import PlayerType
 from settings import Settings
 
-
 window_surface = pygame.display.set_mode((Settings.WINDOW_X, Settings.WINDOW_Y))
 background = pygame.Surface((Settings.WINDOW_X, Settings.WINDOW_Y))
 background.fill(pygame.Color('#000000'))
@@ -47,12 +46,10 @@ class MainLoop:
                 # Getting the next move for HUMAN
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # TODO: active_mover should return false if user input is not valid
-                    active_mover.get_next_move(self.game, pygame.mouse.get_pos())
+                    self.game.update(active_mover.get_next_move(self.game, pygame.mouse.get_pos()))
+
             else:
                 active_mover.get_next_move(self.game, event)
-
-
-
 
         self.current_player += 1
 
@@ -84,3 +81,36 @@ class MainLoop:
                                   Settings.TILE_SIZE + current_column *
                                   Settings.TILE_SIZE),
                                  settings.settings[self.game.get_name()]['thickness'])
+                self.draw_object(current_row,current_column)
+
+    def draw_object(self, row, column):
+        if self.game.get_name() == TicTacToeGame:
+            if self.game.get_grid()[row][column] == 1:
+                self.draw_X(row, column)
+            if self.game.get_grid()[row][column] == 2:
+                self.draw_O(row, column)
+
+    def draw_X(self, row, column):
+        # draw X
+        # upper Left to down right
+        pygame.draw.line(window_surface, (152, 0, 0),
+                         (column * Settings.TILE_SIZE + settings.settings[self.game.get_name()]['space'],
+                          row * Settings.TILE_SIZE + Settings.TILE_SIZE - settings.settings[self.game.get_name()][
+                              'space']),
+                         (column * Settings.TILE_SIZE + Settings.TILE_SIZE - settings.settings[self.game.get_name()][
+                             'space'],
+                          row * Settings.TILE_SIZE + settings.settings[self.game.get_name()]['space']), 10)
+        # upper right to down left
+        pygame.draw.line(window_surface, (152, 0, 0),
+                         (column * Settings.TILE_SIZE + settings.settings[self.game.get_name()]['space'],
+                          row * Settings.TILE_SIZE + settings.settings[self.game.get_name()]['space']),
+                         (column * Settings.TILE_SIZE + Settings.TILE_SIZE - settings.settings[self.game.get_name()][
+                             'space'],
+                          row * Settings.TILE_SIZE + Settings.TILE_SIZE - settings.settings[self.game.get_name()][
+                              'space']), 10)
+
+    def draw_O(self, row, column):
+        # draw circle
+        pygame.draw.circle(window_surface, (255, 255, 255), (
+            int(column * Settings.TILE_SIZE + Settings.TILE_SIZE // 2),
+            int(row * Settings.TILE_SIZE + Settings.TILE_SIZE // 2)), 80, 10)

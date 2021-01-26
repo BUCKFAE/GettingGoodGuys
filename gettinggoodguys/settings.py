@@ -1,6 +1,6 @@
 # Settings for TicTacToe
 
-settings = {'TicTacToe': {'thickness': 10, 'space': 10},
+settings = {'TicTacToe': {'thickness': 10, 'space': 20},
             'SnakeGame': {'thickness': 1, 'space': 5}}
 
 
