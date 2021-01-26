@@ -1,6 +1,6 @@
 import numpy as np
 
-from game.game import Game
+from gettinggoodguys.game.game import Game
 
 
 class SnakeGame(Game):
