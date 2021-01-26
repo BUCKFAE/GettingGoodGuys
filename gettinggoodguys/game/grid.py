@@ -1,3 +1,5 @@
+from typing import List, Tuple
+
 import numpy as np
 
 
@@ -5,7 +7,7 @@ def set_new_game_state(grid, col, row, value):
     grid[col][row] = value
 
 
-def get_matching_coordinates(grid, x):
+def get_matching_coordinates(grid, x) -> List[Tuple[int, int]]:
     coordinates = np.where(grid == x)
     return [tuple(i) for i in zip(coordinates[0], coordinates[1])]
 

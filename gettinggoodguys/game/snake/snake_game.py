@@ -1,18 +1,18 @@
 import numpy as np
 
-from game.game import Game
+from gettinggoodguys.game.game import Game
 
 
 class SnakeGame(Game):
     rows = 0
     columns = 0
 
-    def __init__(self, rows, columns):
+    def __init__(self, rows: int, columns: int):
         self.grid = np.zeros((rows, columns))
         self.rows = rows
         self.columns = columns
 
-    def get_grid(self):
+    def get_grid(self) -> np.array:
         pass
 
     def update(self, move):

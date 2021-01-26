@@ -1,6 +1,6 @@
 import random
 
-from game.mover import Mover
+from gettinggoodguys.game.mover import Mover
 
 
 class TicTacToeRandomMover(Mover):

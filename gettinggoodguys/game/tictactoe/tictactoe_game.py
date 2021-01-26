@@ -1,8 +1,8 @@
 import numpy as np
 
-from game.game import Game
-from game.grid import get_matching_coordinates, get_tile_info_at, set_new_game_state
-from game.tictactoe.tictactoe_tile_type import TicTacToeTileType
+from gettinggoodguys.game.game import Game
+from gettinggoodguys.game.grid import get_matching_coordinates, set_new_game_state, get_tile_info_at
+from gettinggoodguys.game.tictactoe.tictactoe_tile_type import TicTacToeTileType
 
 
 class TicTacToeGame(Game):
