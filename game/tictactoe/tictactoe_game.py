@@ -15,7 +15,6 @@ class TicTacToeGame(Game):
     def get_possible_moves(self):
         return get_matching_coordinates(self.grid, 0)
 
-    # TODO: numpy is only initialised with zeros -> TILE_EMPTY don't work here
     def update(self, move):
         """Move is a tuple"""
         if get_tile_info_at(self.grid, move[0], move[1]) != TicTacToeTileType.TILE_EMPTY:
