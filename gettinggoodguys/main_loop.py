@@ -6,6 +6,7 @@ import settings
 from game.tictactoe.tictactoe_game import TicTacToeGame
 from game.tictactoe.tictactoe_human_mover import TicTacToeHumanMover
 from gettinggoodguys.game.player_type import PlayerType
+from gettinggoodguys.game.tictactoe.tictactoe_tile_type import TicTacToeTileType
 from settings import Settings
 
 window_surface = pygame.display.set_mode((Settings.WINDOW_X, Settings.WINDOW_Y))
@@ -21,6 +22,7 @@ class MainLoop:
         # self.game = SnakeGame(50,80)
 
         self.movers = [TicTacToeHumanMover(), TicTacToeHumanMover()]
+        self.playerList = [TicTacToeTileType.TILE_PLAYER_1, TicTacToeTileType.TILE_PLAYER_2]
 
         print("Initializing MainLoop...")
 
@@ -81,13 +83,13 @@ class MainLoop:
                                   Settings.TILE_SIZE + current_column *
                                   Settings.TILE_SIZE),
                                  settings.settings[self.game.get_name()]['thickness'])
-                self.draw_object(current_row,current_column)
+                self.draw_object(current_row, current_column)
 
     def draw_object(self, row, column):
-        if self.game.get_name() == TicTacToeGame:
-            if self.game.get_grid()[row][column] == 1:
+        if self.game.get_name() == "TicTacToe":
+            if self.game.get_grid()[row][column] == TicTacToeTileType.TILE_PLAYER_1:
                 self.draw_X(row, column)
-            if self.game.get_grid()[row][column] == 2:
+            if self.game.get_grid()[row][column] == TicTacToeTileType.TILE_PLAYER_2:
                 self.draw_O(row, column)
 
     def draw_X(self, row, column):
