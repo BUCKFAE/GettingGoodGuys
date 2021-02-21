@@ -16,11 +16,14 @@ class TicTacToeGame(Game):
 
     def update(self, move):
         """Move is a tuple"""
+
         #        if get_tile_info_at(self.grid, move[0], move[1]) != TicTacToeTileType.TILE_EMPTY:
         #          exit(1)  # TODO: Throw meaningful message
 
         if self.get_possible_moves():
             print("tie")
+        print(self.get_possible_moves())
+
 
         # Setting the new tile
         if self.current_move_id % 2 == 0:
