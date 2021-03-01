@@ -7,22 +7,21 @@ from gettinggoodguys.game.tictactoe.tictactoe_tile_type import TicTacToeTileType
 
 class TicTacToeGame(Game):
 
+    def get_number_of_players(self):
+        return 2
+
     def __init__(self):
         self.grid = np.full((3, 3), TicTacToeTileType.TILE_EMPTY)
         self.current_move_id = 0
 
     def get_possible_moves(self):
-        return get_matching_coordinates(self.grid, 0)
+        return get_matching_coordinates(self.grid, TicTacToeTileType.TILE_EMPTY)
 
     def update(self, move):
         """Move is a tuple"""
 
         #        if get_tile_info_at(self.grid, move[0], move[1]) != TicTacToeTileType.TILE_EMPTY:
         #          exit(1)  # TODO: Throw meaningful message
-
-        if self.get_possible_moves():
-            print("tie")
-        print(self.get_possible_moves())
 
 
         # Setting the new tile
@@ -34,6 +33,13 @@ class TicTacToeGame(Game):
         self.current_move_id += 1
         if self.check_for_win():
             print(self.current_move_id % 2)
+            return False, str(self.current_move_id % 2)
+
+        if self.get_possible_moves().__len__() < 1:
+            print("tie")
+            return False, "tie"
+
+        return True, ""
 
     def check_for_win(self):
         # vertical win check

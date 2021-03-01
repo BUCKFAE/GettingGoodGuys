@@ -27,3 +27,7 @@ class Game(ABC):
     def get_game_columns(self):
         pass
 
+    @abstractmethod
+    def get_number_of_players(self):
+        pass
+

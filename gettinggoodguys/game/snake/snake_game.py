@@ -29,3 +29,6 @@ class SnakeGame(Game):
 
     def get_game_columns(self):
         return self.columns
+
+    def get_number_of_players(self):
+        return 1
